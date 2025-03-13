@@ -1,0 +1,17 @@
+{
+  "productName": "PRD Creator MCP Server",
+  "productDescription": "A specialized Model Context Protocol (MCP) server dedicated to creating Product Requirements Documents. This MCP server enables AI systems connected to MCP clients to generate detailed, well-structured product requirement documents through a standardized protocol interface.",
+  "targetAudience": "Product managers, technical leads, development teams, and business stakeholders who need to create and maintain PRDs for software and product development.",
+  "coreFeatures": [
+    "PRD Generator: Create complete PRDs based on product descriptions, user stories, and requirements",
+    "PRD Validator: Validate PRD completeness against industry standards and customizable rule sets",
+    "Template Resources: Access a library of PRD templates for different product types",
+    "MCP Protocol Support: Implement the Model Context Protocol for seamless integration with MCP clients"
+  ],
+  "constraints": [
+    "Must be compatible with MCP clients using STDIO transport",
+    "Must work with Node.js v16 or higher",
+    "Storage should be lightweight with minimal configuration"
+  ],
+  "templateName": "comprehensive"
+}
