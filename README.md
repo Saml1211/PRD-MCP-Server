@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/saml1211-prd-mcp-server-badge.png)](https://mseep.ai/app/saml1211-prd-mcp-server)
+
 # PRD Creator MCP Server
 
 [![Build Status](https://github.com/Saml1211/prd-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/Saml1211/prd-mcp-server/actions/workflows/ci.yml)
