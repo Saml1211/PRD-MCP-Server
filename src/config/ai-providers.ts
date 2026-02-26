@@ -37,8 +37,7 @@ export async function getProviderConfigs(): Promise<Record<string, AiProviderCon
 
   configs['gemini'] = mergeConfig('gemini', {
     apiKey: process.env.GEMINI_API_KEY,
-    const modelName = options?.model || process.env.GEMINI_MODEL || 'gemini-2.5-flash';
-    const model = genAI.getGenerativeModel({ model: modelName });
+    model: process.env.GEMINI_MODEL || 'gemini-2.5-flash'
   });
 
   configs['local'] = mergeConfig('local', {
