@@ -16,21 +16,13 @@ export class OpenAiProvider implements AiProvider {
     this.config = config;
 
     if (!config.apiKey) {
-      logger.error("[OpenAiProvider] Missing OpenAI API key (config.apiKey)! Provider will be unavailable.");
-      throw new Error("Missing OpenAI API key. Set OPENAI_API_KEY in your environment.");
+      logger.warn("[OpenAiProvider] No API key provided. Provider will be unavailable.");
+    } else {
+      this.client = new OpenAI({
+        apiKey: config.apiKey,
+        baseURL: config.baseUrl
+      });
     }
-    this.client = new OpenAI({
-      apiKey: config.apiKey,
-      baseURL: config.baseUrl
-    });
-    // Optionally: Validate model access on startup. Uncomment for deeper debugging.
-    // (async () => {
-    //   try {
-    //     await this.client.models.list();
-    //   } catch (e) {
-    //     logger.error(`[OpenAiProvider] Failed to list models with provided API key: ${e instanceof Error ? e.message : String(e)}`);
-    //   }
-    // })();
   }
   
   /**

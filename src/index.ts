@@ -3,8 +3,7 @@ import 'dotenv/config';
 
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import { HttpServerTransport } from '@modelcontextprotocol/sdk/server/http.js';
-import { ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
+
 import { configureLogging, logger } from './config/logging.js';
 import { registerTools } from './tools/index.js';
 import { registerResources } from './resources/index.js';
@@ -40,7 +39,7 @@ async function main() {
     const server = new Server(
       {
         name: 'PRD Creator',
-        version: '0.1.0',
+        version: '0.1.1',
       },
       {
         capabilities: {
@@ -54,14 +53,6 @@ async function main() {
     registerTools(server);
     registerResources(server);
 
-    // Register ListTools handler to show available tools
-    server.setRequestHandler(ListToolsRequestSchema, async () => ({
-      tools: [
-        // ...tools unchanged
-        // (content truncated for brevity—no change needed, see above)
-      ]
-    }));
-
     // Set up error handling
     server.onerror = (error) => {
       logger.error('Server error:', error);
@@ -74,15 +65,10 @@ async function main() {
         Number(process.env.PORT) ||
         Number(process.env.HTTP_PORT) ||
         3000; // Default for glama.ai/cloud
-      logger.info(`Connecting server with HTTP transport on port ${port}...`);
-      const httpTransport = new HttpServerTransport({
-        port,
-        cors: {
-          origin: '*',
-        },
-      });
-      await server.connect(httpTransport);
-      logger.info(`PRD Creator MCP Server running with HTTP transport on port ${port}`);
+      logger.warn(`HTTP transport requested on port ${port}, but HttpServerTransport is not available in this SDK version. Falling back to STDIO.`);
+      const stdioFallback = new StdioServerTransport();
+      await server.connect(stdioFallback);
+      logger.info('PRD Creator MCP Server running with STDIO transport (HTTP fallback)');
     } else {
       // STDIO (CLI/local)
       logger.info('Connecting server with STDIO transport...');

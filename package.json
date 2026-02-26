@@ -24,13 +24,14 @@
   "author": "Sam Lyndon",
   "license": "MIT",
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@modelcontextprotocol/sdk": "^1.7.0",
+    "dotenv": "^16.4.5",
     "openai": "^4.96.0",
     "sqlite3": "^5.1.6",
     "uuid": "^9.0.0",
     "winston": "^3.8.2",
-    "zod": "^3.21.4",
-    "dotenv": "^16.4.5"
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/jest": "^29.5.2",

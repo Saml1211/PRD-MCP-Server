@@ -38,6 +38,7 @@ docker run -i --rm saml1211/prd-creator-mcp
 
 **Configure Providers:**
 - Copy `.env.example` to `.env` and set your API keys and preferred models.
+- Supported providers: **OpenAI** (`OPENAI_API_KEY`), **Google Gemini** (`GEMINI_API_KEY`), **Anthropic** (`ANTHROPIC_API_KEY`), and **local models**.
 - Optionally, update provider credentials at runtime using the `update_provider_config` MCP tool.
 
 **Get Help:**
@@ -166,16 +167,16 @@ List all available AI providers and their availability status.
   {
     "id": "openai",
     "name": "OpenAI",
-    "available": true
-  },
-  {
-    "id": "anthropic",
-    "name": "Anthropic Claude",
     "available": false
   },
   {
     "id": "gemini",
     "name": "Google Gemini",
+    "available": true
+  },
+  {
+    "id": "anthropic",
+    "name": "Anthropic Claude",
     "available": false
   },
   {
@@ -190,6 +191,8 @@ List all available AI providers and their availability status.
   }
 ]
 ```
+
+> **Note:** Availability depends on configured API keys. This example shows a setup with only `GEMINI_API_KEY` configured.
 
 ### Template Management
 
@@ -217,7 +220,7 @@ The server provides additional tools for template management:
 ### Configuring AI Providers
 
 You can configure provider credentials and models in two ways:
-- **.env file:** Place a `.env` file in your project or working directory. Use `.env.example` as a template. All standard AI provider variables (e.g., `OPENAI_API_KEY`, `OPENAI_MODEL`, etc.) are supported.
+- **.env file:** Place a `.env` file in your project or working directory. Use `.env.example` as a template. All standard AI provider variables (e.g., `OPENAI_API_KEY`, `OPENAI_MODEL`, `GEMINI_API_KEY`, `GEMINI_MODEL`, etc.) are supported.
 - **Live protocol tools:** Update provider configuration at runtime using the `update_provider_config` tool via your MCP client. These changes are persisted and take effect immediately—no server restart required.
 
 The server will always merge persistent config (from protocol tools) with environment variables, giving precedence to protocol/tool updates.
@@ -340,6 +343,12 @@ docker run -i --rm prd-creator-mcp
 
 ```bash
 docker run -i --rm -e OPENAI_API_KEY=your_key_here prd-creator-mcp
+```
+
+### With Gemini provider
+
+```bash
+docker run -i --rm -e GEMINI_API_KEY=your_key_here -e DEFAULT_AI_PROVIDER=gemini prd-creator-mcp
 ```
 
 ## Contributing
