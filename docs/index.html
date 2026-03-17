@@ -1,0 +1,76 @@
+ms: center; gap: 8px; }
+        .logo::before { content: "◆"; color: var(--accent); }
+        .badge { background: var(--surface); padding: 4px 12px; border-radius: 999px; font-size: 0.75rem; color: var(--muted); border: 1px solid #222; }
+        .hero { padding: 120px 0 80px; text-align: center; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 24px; }
+        .hero p { font-size: 1.25rem; color: var(--muted); max-width: 600px; margin: 0 auto 40px; }
+        .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary { background: var(--accent); color: #000; }
+        .btn-primary:hover { background: #16a34a; }
+        .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid #333; }
+        .btn-secondary:hover { border-color: var(--accent); }
+        .stats { display: flex; justify-content: center; gap: 48px; margin-top: 64px; padding-top: 48px; border-top: 1px solid #222; }
+        .stat { text-align: center; }
+        .stat-value { font-size: 2rem; font-weight: 800; color: var(--accent); }
+        .stat-label { font-size: 0.875rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .features { padding: 80px 0; }
+        .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 48px; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .card { background: var(--surface); padding: 32px; border-radius: 12px; border: 1px solid #222; }
+        .card-icon { font-size: 1.5rem; margin-bottom: 16px; }
+        .card h3 { font-size: 1.125rem; margin-bottom: 8px; }
+        .card p { color: var(--muted); font-size: 0.9375rem; }
+        .install { padding: 80px 0; background: var(--surface); }
+        .code { background: #0a0a0a; padding: 20px 24px; border-radius: 8px; font-family: ui-monospace, monospace; font-size: 0.875rem; overflow-x: auto; border: 1px solid #222; }
+        .code-header { display: flex; gap: 8px; margin-bottom: 12px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot-red { background: #ef4444; } .dot-yellow { background: #eab308; } .dot-green { background: #22c55e; }
+        footer { padding: 48px 0; text-align: center; color: var(--muted); font-size: 0.875rem; border-top: 1px solid #222; }
+    </style>
+</head>
+<body>
+    <header><div class="container"><div class="nav">
+        <div class="logo">PRD MCP Server</div>
+        <div class="badge">32 GitHub Stars</div>
+    </div></div></header>
+
+    <section class="hero"><div class="container">
+        <h1>Generate Production-Ready PRDs from Your Codebase</h1>
+        <p>An MCP server that connects your AI assistant to your codebase context, enabling intelligent Product Requirement Document generation.</p>
+        <div class="cta-group">
+            <a href="#install" class="btn btn-primary">Get Started</a>
+            <a href="https://github.com/Saml1211/PRD-MCP-Server" class="btn btn-secondary">View on GitHub</a>
+        </div>
+        <div class="stats">
+            <div class="stat"><div class="stat-value">32+</div><div class="stat-label">GitHub Stars</div></div>
+            <div class="stat"><div class="stat-value">1K+</div><div class="stat-label">NPM Installs</div></div>
+            <div class="stat"><div class="stat-value">∞</div><div class="stat-label">PRDs Generated</div></div>
+        </div>
+    </div></section>
+
+    <section class="features"><div class="container">
+        <h2 class="section-title">Built for Engineers Who Ship</h2>
+        <div class="grid">
+            <div class="card"><div class="card-icon">ð</div><h3>MCP Protocol Native</h3><p>Integrates seamlessly with Claude, Cursor, and any MCP-compatible AI assistant.</p></div>
+            <div class="card"><div class="card-icon">ð</div><h3>Context-Aware</h3><p>Reads your actual codebase to generate relevant, accurate PRDs that match your architecture.</p></div>
+            <div class="card"><div class="card-icon">⚡</div><h3>Production Ready</h3><p>Structured, professional PRDs that engineering teams can actually use. No fluff.</p></div>
+            <div class="card"><div class="card-icon">ð§</div><h3>Customizable</h3><p>Define your own PRD templates and structure. Make it match your organization.</p></div>
+            <div class="card"><div class="card-icon">ð</div><h3>Local First</h3><p>Your code stays on your machine. No data sent to external APIs unless you configure it.</p></div>
+            <div class="card"><div class="card-icon">ð¦</div><h3>One-Line Install</h3><p>Available on npm. Install globally or locally. Works on macOS, Linux, Windows.</p></div>
+        </div>
+    </div></section>
+
+    <section class="install" id="install"><div class="container">
+        <h2 class="section-title">Install in 30 Seconds</h2>
+        <div class="code">
+            <div class="code-header"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
+            npm install -g prd-mcp-server
+        </div>
+    </div></section>
+
+    <footer><div class="container">
+        <p>© 2026 PRD MCP Server — Built with purpose by <a href="https://github.com/Saml1211" style="color: var(--accent)">@Saml1211</a></p>
+    </div></footer>
+</body>
+</html>
